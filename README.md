@@ -1,16 +1,17 @@
-# 📊 Seasonality Coefficients Calculation
+# Seasonality Coefficients Calculation
 
 A data engineering & analytics pipeline built at **Danone** to calculate standardized **seasonality coefficients** for global sell-out sales data, across multiple business scopes (Dairy, Plant-Based, Waters, and Specialized Nutrition), feeding a downstream Power BI reporting layer.
 
-## 📌 Project Overview
+> ⚠️ **Note:** This is a generalized, anonymized version of an internal Danone project. All database connection details, credentials, internal table names, and personal file paths have been removed or replaced with generic placeholders. No real sales figures or proprietary business results are included — this repository showcases the **methodology and code only**.
+
+## Project Overview
 
 Different business categories sell at different paces throughout the year — some peak in summer (e.g., waters), others have steady demand (e.g., dairy staples). To make volume/value forecasts and targets comparable and realistic across categories and countries, this project computes a **seasonality coefficient per period, per business "grain"** (country × category combination), based on rolling 3-month (L3M) sales weighted against full-year historical totals.
 
 The pipeline pulls raw sell-out data from a cloud data warehouse, applies business-scope-specific data preparation rules, calculates coefficients with year-completeness validation, and exports a consolidated, Power BI-ready output table.
 
-> ⚠️ **Note:** This is a generalized, anonymized version of an internal Danone project. All database connection details, credentials, internal table names, and personal file paths have been removed or replaced with generic placeholders. No real sales figures or proprietary business results are included — this repository showcases the **methodology and code only**.
 
-## 🎯 Objectives
+## Objectives
 
 - Consolidate global sell-out data across five business scopes (**Dairy, Plant-Based, Waters, Specialized Nutrition - Early Life, Specialized Nutrition - Pediatrics/Allergy**) into a single analytical base.
 - Define a consistent **"grain"** (the unit of analysis: country + category combination) per business scope, handling scope-specific edge cases.
@@ -18,7 +19,7 @@ The pipeline pulls raw sell-out data from a cloud data warehouse, applies busine
 - Validate **year completeness** per grain before including it in historical totals, to avoid coefficients skewed by partial/incomplete years.
 - Produce a clean, standardized output table ready to be consumed by **Power BI** dashboards.
 
-## 🔍 Methodology
+## Methodology
 
 ### 1. Data Extraction
 - Connected to the company's cloud data warehouse and queried global sell-out delivery data.
@@ -49,21 +50,21 @@ Reusable function applied to every business scope:
 - Reformatted columns/types to match the expected **Power BI** data model.
 - Exported the final table to Excel for ingestion into the reporting layer.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Language:** Python (PySpark + pandas)
 - **Data warehouse:** Snowflake (accessed via Spark connector on a Databricks-based platform)
 - **Data manipulation:** pandas, numpy
 - **Output / BI integration:** Excel export feeding a **Power BI** dashboard
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ├── Seasonality_Coefficients_Final.ipynb   # Full pipeline: extraction, EDA, per-scope prep, coefficient calc, export
 └── README.md
 ```
 
-## 🚀 How to Run
+## How to Run
 
 This notebook was originally built on a Spark-based data platform (Databricks) connected to Snowflake. To adapt it to your own environment:
 
