@@ -1,6 +1,6 @@
 # Seasonality Coefficients Calculation
 
-A data engineering & analytics pipeline built at **Danone** to calculate standardized **seasonality coefficients** for global sell-out sales data, across multiple business scopes (Dairy, Plant-Based, Waters, and Specialized Nutrition), feeding a downstream Power BI reporting layer.
+A data engineering & analytics pipeline built at my **Danone** internship to calculate standardized **seasonality coefficients** for global sell-out sales data, across multiple business scopes (Dairy, Plant-Based, Waters, and Specialized Nutrition), feeding a downstream Power BI reporting layer.
 
 > ⚠️ **Note:** This is a generalized, anonymized version of an internal Danone project. All database connection details, credentials, internal table names, and personal file paths have been removed or replaced with generic placeholders. No real sales figures or proprietary business results are included — this repository showcases the **methodology and code only**.
 
